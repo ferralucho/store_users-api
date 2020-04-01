@@ -6,6 +6,7 @@ import (
 	"github.com/mercadolibre/store_users-api/services"
 	"github.com/mercadolibre/store_users-api/utils/errors"
 	"net/http"
+	"strconv"
 )
 
 func Create(c *gin.Context) {
@@ -25,7 +26,18 @@ func Create(c *gin.Context) {
 }
 
 func GetUser(c *gin.Context) {
-
+	userId, userErr := strconv.ParseInt(c.Param("user_id"), 10, 64)
+	if userErr != nil {
+		err := errors.NewBadRequestError("invalid user id")
+		c.JSON(err.Status, err)
+		return
+	}
+	result, getErr := services.Getser(userId)
+	if getErr != nil {
+		c.JSON(getErr.Status, getErr)
+		return
+	}
+	c.JSON(http.StatusOK, result)
 }
 
 func SearchUser(c *gin.Context) {}
