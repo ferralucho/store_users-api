@@ -2,7 +2,9 @@ package services
 
 import (
 	"github.com/mercadolibre/store_users-api/domain/users"
+	"github.com/mercadolibre/store_users-api/utils/date_utils"
 	"github.com/mercadolibre/store_users-api/utils/errors"
+	"github.com/mercadolibre/store_users-api/utils/utils/crypto_utils"
 )
 
 func GetUser(userId int64) (*users.User, *errors.RestErr) {
@@ -17,6 +19,9 @@ func CreateUser(user users.User) (*users.User, *errors.RestErr) {
 	if err := user.Validate(); err != nil {
 		return nil, err
 	}
+	user.Status = users.StatusActive
+	user.DateCreated = date_utils.GetNowDBFormat()
+	user.Password = crypto_utils.GetMd5(user.Password)
 	if err := user.Save(); err != nil {
 		return nil, err
 	}
