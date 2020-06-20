@@ -2,6 +2,7 @@ package users
 
 import (
 	"fmt"
+
 	"github.com/mercadolibre/store_users-api/datasources/mysql/users_db"
 	"github.com/mercadolibre/store_users-api/utils/date_utils"
 	"github.com/mercadolibre/store_users-api/utils/errors"

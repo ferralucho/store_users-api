@@ -1,8 +1,9 @@
 package users
 
 import (
-	rest_errors "github.com/mercadolibre/store_users-api/utils/errors"
 	"strings"
+
+	rest_errors "github.com/mercadolibre/store_users-api/utils/errors"
 )
 
 const (

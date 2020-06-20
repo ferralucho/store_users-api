@@ -1,12 +1,13 @@
 package users
 
 import (
+	"net/http"
+	"strconv"
+
 	"github.com/gin-gonic/gin"
 	"github.com/mercadolibre/store_users-api/domain/users"
 	"github.com/mercadolibre/store_users-api/services"
 	"github.com/mercadolibre/store_users-api/utils/errors"
-	"net/http"
-	"strconv"
 )
 
 func getUserId(userIdParam string) (int64, *errors.RestErr) {
