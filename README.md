@@ -33,3 +33,15 @@ curl --location --request POST 'localhost:8080/users' \
 	"email": "lucianodarioferrari@gmail.com",
 	"password": "password1"
 }'
+
+TO CONNECT TO THE DATABASE IF YOU ARE USING VISUAL STUDIO CODE, ADD THIS IN launch.json
+
+{
+    "name": "Launch",
+    "type": "go",
+    "request": "launch",
+    "mode": "auto",
+    "program": "${workspaceFolder}/main.go",
+    "env": {"mysql_users_username":"root","mysql_users_password":"","mysql_users_host":"127.0.0.1:3306","mysql_users_schema":"users_db"},
+    "args": []
+}
