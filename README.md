@@ -27,7 +27,7 @@ POSTMAN REST:
 CREATE USER
 
 curl --location --request POST 'localhost:8080/users' \
---header 'Content-Type: text/plain' \
+--header 'Content-Type: application/json' \
 --data-raw '{
 	"first_name": "Luciano",
 	"last_name": "Ferrari",
