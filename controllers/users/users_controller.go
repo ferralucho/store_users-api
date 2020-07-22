@@ -40,6 +40,15 @@ func Get(c *gin.Context) {
 		c.JSON(err.Status, err)
 		return
 	}
+	//if the caller id is 0 the access token does not exist
+	if callerId := oauth.GetCallerId(c.Request); callerId == 0 {
+		err := errors.RestErr{
+			Status:  http.StatusUnauthorized,
+			Message: "resource not available",
+		}
+		c.JSON(err.Status, err)
+		return
+	}
 
 	userId, idErr := getUserId(c.Param("user_id"))
 	if idErr != nil {
