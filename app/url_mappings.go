@@ -1,8 +1,8 @@
 package app
 
 import (
-	"github.com/mercadolibre/store_users-api/controllers/ping"
-	"github.com/mercadolibre/store_users-api/controllers/users"
+	"github.com/ferralucho/store_users-api/controllers/ping"
+	"github.com/ferralucho/store_users-api/controllers/users"
 )
 
 func mapUrls() {

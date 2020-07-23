@@ -3,7 +3,7 @@ package users
 import (
 	"strings"
 
-	rest_errors "github.com/mercadolibre/store_users-api/utils/errors"
+	rest_errors "github.com/ferralucho/store_users-api/utils/errors"
 )
 
 const (

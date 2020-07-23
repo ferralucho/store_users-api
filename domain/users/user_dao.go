@@ -4,11 +4,11 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/mercadolibre/store_users-api/datasources/logger"
-	"github.com/mercadolibre/store_users-api/datasources/mysql/users_db"
-	"github.com/mercadolibre/store_users-api/utils/date_utils"
-	"github.com/mercadolibre/store_users-api/utils/errors"
-	"github.com/mercadolibre/store_users-api/utils/mysql_utils"
+	"github.com/ferralucho/store_users-api/datasources/logger"
+	"github.com/ferralucho/store_users-api/datasources/mysql/users_db"
+	"github.com/ferralucho/store_users-api/utils/date_utils"
+	"github.com/ferralucho/store_users-api/utils/errors"
+	"github.com/ferralucho/store_users-api/utils/mysql_utils"
 )
 
 const (

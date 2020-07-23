@@ -1,6 +1,6 @@
 package main
 
-import "github.com/mercadolibre/store_users-api/app"
+import "github.com/ferralucho/store_users-api/app"
 
 func main() {
 	app.StartApplication()

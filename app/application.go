@@ -2,7 +2,7 @@ package app
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/mercadolibre/store_users-api/datasources/logger"
+	"github.com/ferralucho/store_users-api/datasources/logger"
 )
 
 var (

@@ -1,11 +1,11 @@
 package services
 
 import (
-	"github.com/mercadolibre/store_users-api/domain/users"
-	"github.com/mercadolibre/store_users-api/utils/date_utils"
-	"github.com/mercadolibre/store_users-api/utils/errors"
-	rest_errors "github.com/mercadolibre/store_users-api/utils/errors"
-	"github.com/mercadolibre/store_users-api/utils/utils/crypto_utils"
+	"github.com/ferralucho/store_users-api/domain/users"
+	"github.com/ferralucho/store_users-api/utils/date_utils"
+	"github.com/ferralucho/store_users-api/utils/errors"
+	rest_errors "github.com/ferralucho/store_users-api/utils/errors"
+	"github.com/ferralucho/store_users-api/utils/utils/crypto_utils"
 )
 
 var (

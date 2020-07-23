@@ -6,9 +6,9 @@ import (
 
 	"github.com/ferralucho/store_oauth-go/oauth"
 	"github.com/gin-gonic/gin"
-	"github.com/mercadolibre/store_users-api/domain/users"
-	"github.com/mercadolibre/store_users-api/services"
-	"github.com/mercadolibre/store_users-api/utils/errors"
+	"github.com/ferralucho/store_users-api/domain/users"
+	"github.com/ferralucho/store_users-api/services"
+	"github.com/ferralucho/store_users-api/utils/errors"
 )
 
 func getUserId(userIdParam string) (int64, *errors.RestErr) {
