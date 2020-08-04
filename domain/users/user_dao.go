@@ -4,10 +4,11 @@ import (
 	"fmt"
 	"strings"
 
+	errors "github.com/ferralucho/store_utils-go/rest_errors"
+
 	"github.com/ferralucho/store_users-api/datasources/logger"
 	"github.com/ferralucho/store_users-api/datasources/mysql/users_db"
 	"github.com/ferralucho/store_users-api/utils/date_utils"
-	"github.com/ferralucho/store_users-api/utils/errors"
 	"github.com/ferralucho/store_users-api/utils/mysql_utils"
 )
 
@@ -20,11 +21,11 @@ const (
 	queryFindByEmailAndPassword = "SELECT id, first_name, last_name, email, date_created, status FROM users WHERE email=? AND password=? AND status=?"
 )
 
-func (user *User) Get() *errors.RestErr {
+func (user *User) Get() errors.RestErr {
 	stmt, err := users_db.Client.Prepare(queryGetUser)
 	if err != nil {
 		logger.Error("error when trying to prepare get user statement", err)
-		return errors.NewInternalServerError("database error")
+		return errors.NewInternalServerError("database error", err)
 	}
 	defer stmt.Close()
 
@@ -36,11 +37,11 @@ func (user *User) Get() *errors.RestErr {
 	return nil
 }
 
-func (user *User) Save() *errors.RestErr {
+func (user *User) Save() errors.RestErr {
 	stmt, err := users_db.Client.Prepare(queryInsertUser)
 	if err != nil {
 		logger.Error("error when trying to prepare save user statement", err)
-		return errors.NewInternalServerError("database error")
+		return errors.NewInternalServerError("database error", err)
 	}
 	defer stmt.Close()
 
@@ -61,11 +62,11 @@ func (user *User) Save() *errors.RestErr {
 	return nil
 }
 
-func (user *User) Update() *errors.RestErr {
+func (user *User) Update() errors.RestErr {
 	stmt, err := users_db.Client.Prepare(queryUpdateUser)
 	if err != nil {
 		logger.Error("error when trying to prepare save user statement", err)
-		return errors.NewInternalServerError("database error")
+		return errors.NewInternalServerError("database error", err)
 	}
 	defer stmt.Close()
 
@@ -76,11 +77,11 @@ func (user *User) Update() *errors.RestErr {
 	return nil
 }
 
-func (user *User) Delete() *errors.RestErr {
+func (user *User) Delete() errors.RestErr {
 	stmt, err := users_db.Client.Prepare(queryDeleteUser)
 	if err != nil {
 		logger.Error("error when trying to prepare delete user statement", err)
-		return errors.NewInternalServerError("database error")
+		return errors.NewInternalServerError("database error", err)
 	}
 	defer stmt.Close()
 
@@ -91,18 +92,18 @@ func (user *User) Delete() *errors.RestErr {
 	return nil
 }
 
-func (user *User) FindByStatus(status string) ([]User, *errors.RestErr) {
+func (user *User) FindByStatus(status string) ([]User, errors.RestErr) {
 	stmt, err := users_db.Client.Prepare(queryFindUserByStatus)
 	if err != nil {
 		logger.Error("error when trying to prepare find by status user statement", err)
-		return nil, errors.NewInternalServerError("database error")
+		return nil, errors.NewInternalServerError("database error", err)
 	}
 	defer stmt.Close()
 
 	rows, err := stmt.Query(status)
 	if err != nil {
 		logger.Error("error when trying to find users by status", err)
-		return nil, errors.NewInternalServerError(err.Error())
+		return nil, errors.NewInternalServerError(err.Error(), err)
 	}
 	defer rows.Close()
 
@@ -121,11 +122,11 @@ func (user *User) FindByStatus(status string) ([]User, *errors.RestErr) {
 	return results, nil
 }
 
-func (user *User) FindByEmailAndPassword() *errors.RestErr {
+func (user *User) FindByEmailAndPassword() errors.RestErr {
 	stmt, err := users_db.Client.Prepare(queryFindByEmailAndPassword)
 	if err != nil {
 		logger.Error("error when trying to prepare get user by email and password statement", err)
-		return errors.NewInternalServerError("error when tying to find user")
+		return errors.NewInternalServerError("error when tying to find user", err)
 	}
 	defer stmt.Close()
 
@@ -135,7 +136,7 @@ func (user *User) FindByEmailAndPassword() *errors.RestErr {
 			return errors.NewNotFoundError("invalid user credentials")
 		}
 		logger.Error("error when trying to get user by email and password", getErr)
-		return errors.NewInternalServerError("error when tying to find user")
+		return errors.NewInternalServerError("error when tying to find user", err)
 	}
 	return nil
 }

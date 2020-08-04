@@ -3,7 +3,7 @@ package users
 import (
 	"strings"
 
-	rest_errors "github.com/ferralucho/store_users-api/utils/errors"
+	rest_errors "github.com/ferralucho/store_utils-go/rest_errors"
 )
 
 const (
@@ -22,7 +22,7 @@ type User struct {
 
 type Users []User
 
-func (user *User) Validate() *rest_errors.RestErr {
+func (user *User) Validate() rest_errors.RestErr {
 	user.FirstName = strings.TrimSpace(user.FirstName)
 	user.LastName = strings.TrimSpace(user.LastName)
 
