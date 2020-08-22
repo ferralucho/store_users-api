@@ -6,10 +6,10 @@ import (
 
 	errors "github.com/ferralucho/store_utils-go/rest_errors"
 
-	"github.com/ferralucho/store_users-api/datasources/logger"
-	"github.com/ferralucho/store_users-api/datasources/mysql/users_db"
-	"github.com/ferralucho/store_users-api/utils/date_utils"
-	"github.com/ferralucho/store_users-api/utils/mysql_utils"
+	"github.com/ferralucho/store_users-api/src/datasources/logger"
+	"github.com/ferralucho/store_users-api/src/datasources/mysql/users_db"
+	"github.com/ferralucho/store_users-api/src/utils/date_utils"
+	"github.com/ferralucho/store_users-api/src/utils/mysql_utils"
 )
 
 const (

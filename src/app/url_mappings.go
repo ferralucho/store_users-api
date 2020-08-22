@@ -1,8 +1,8 @@
 package app
 
 import (
-	"github.com/ferralucho/store_users-api/controllers/ping"
-	"github.com/ferralucho/store_users-api/controllers/users"
+	"github.com/ferralucho/store_users-api/src/controllers/ping"
+	"github.com/ferralucho/store_users-api/src/controllers/users"
 )
 
 func mapUrls() {

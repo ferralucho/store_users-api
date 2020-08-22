@@ -1,8 +1,8 @@
 package app
 
 import (
+	"github.com/ferralucho/store_users-api/src/datasources/logger"
 	"github.com/gin-gonic/gin"
-	"github.com/ferralucho/store_users-api/datasources/logger"
 )
 
 var (

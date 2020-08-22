@@ -5,8 +5,8 @@ import (
 	"strconv"
 
 	"github.com/ferralucho/store_oauth-go/oauth"
-	"github.com/ferralucho/store_users-api/domain/users"
-	"github.com/ferralucho/store_users-api/services"
+	"github.com/ferralucho/store_users-api/src/domain/users"
+	"github.com/ferralucho/store_users-api/src/services"
 	errors "github.com/ferralucho/store_utils-go/rest_errors"
 	"github.com/gin-gonic/gin"
 )
