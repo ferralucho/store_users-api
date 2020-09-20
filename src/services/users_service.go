@@ -2,8 +2,8 @@ package services
 
 import (
 	"github.com/ferralucho/store_users-api/src/domain/users"
+	"github.com/ferralucho/store_users-api/src/utils/crypto_utils"
 	"github.com/ferralucho/store_users-api/src/utils/date_utils"
-	"github.com/ferralucho/store_users-api/src/utils/utils/crypto_utils"
 	"github.com/ferralucho/store_utils-go/rest_errors"
 )
 
